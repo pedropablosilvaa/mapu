@@ -107,10 +107,9 @@ def metaMDS(x: Union[np.ndarray, pd.DataFrame],
                   metric="precomputed",
                   random_state=None)  
     except TypeError:
-        # scikit-learn < 1.8
+        # scikit-learn < 1.8 (init might not be a valid keyword argument)
         mds = MDS(n_components=k, 
                   metric=False,
-                  init="random",
                   n_init=n_init, 
                   max_iter=max_iter, 
                   dissimilarity="precomputed",
