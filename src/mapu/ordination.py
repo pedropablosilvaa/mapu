@@ -97,13 +97,24 @@ def metaMDS(x: Union[np.ndarray, pd.DataFrame],
     
     # 2. Run Non-metric MDS using scikit-learn
     # We use precomputed distance and metric=False for non-metric MDS
-    mds = MDS(n_components=k, 
-              metric_mds=False,
-              init="random",
-              n_init=n_init, 
-              max_iter=max_iter, 
-              metric="precomputed",
-              random_state=None)  
+    try:
+        # scikit-learn >= 1.8 (or whenever metric_mds was introduced)
+        mds = MDS(n_components=k, 
+                  metric_mds=False,
+                  init="random",
+                  n_init=n_init, 
+                  max_iter=max_iter, 
+                  metric="precomputed",
+                  random_state=None)  
+    except TypeError:
+        # scikit-learn < 1.8
+        mds = MDS(n_components=k, 
+                  metric=False,
+                  init="random",
+                  n_init=n_init, 
+                  max_iter=max_iter, 
+                  dissimilarity="precomputed",
+                  random_state=None)  
     
     mds_result = mds.fit(dist_matrix)
     
