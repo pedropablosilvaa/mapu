@@ -144,8 +144,11 @@ def vegdist(x: Union[np.ndarray, pd.DataFrame],
         raise ValueError(f"Method '{method}' is not supported yet.")
             
     # Format into DataFrame if possible
-    if isinstance(x, pd.DataFrame):
-        return pd.DataFrame(squareform(dist_condensed), index=x.index, columns=x.index)
+    if upper or isinstance(x, pd.DataFrame):
+        out_mat = squareform(dist_condensed)
+        if isinstance(x, pd.DataFrame):
+            return pd.DataFrame(out_mat, index=x.index, columns=x.index)
+        return out_mat
         
     return dist_condensed
 
