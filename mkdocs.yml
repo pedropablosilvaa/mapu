@@ -1,0 +1,38 @@
+site_name: mapu
+site_description: A native Python port of the R vegan package for community ecology.
+site_url: https://pedropablosilvaa.github.io/mapu/
+
+repo_name: pedropablosilvaa/mapu
+repo_url: https://github.com/pedropablosilvaa/mapu
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_root_heading: true
+            show_source: true
+          paths: [src]
+
+nav:
+  - Home: index.md
+  - API Reference:
+      - Ordination: api/ordination.md
+      - Diversity: api/diversity.md
+      - Vegdist: api/vegdist.md
+      - Transform: api/transform.md
+      - Cluster: api/cluster.md
+      - Stats: api/stats.md

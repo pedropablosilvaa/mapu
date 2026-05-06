@@ -893,7 +893,7 @@ def nestednodf(x: Union[np.ndarray, pd.DataFrame], order: bool = True) -> dict:
     Nestedness Metric based on Overlap and Decreasing Fill (NODF).
     
     Mimics `vegan::nestednodf`. Dynamically computes identical structural occurrence bounds 
-    scaling fractions exactly to $100\%$ overlapping limits identifying formal nested spatial thresholds natively!
+    scaling fractions exactly to $100%$ overlapping limits identifying formal nested spatial thresholds natively!
     
     Parameters
     ----------
