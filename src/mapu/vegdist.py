@@ -190,17 +190,17 @@ def designdist(
     if terms == "binary":
         b_arr = (x_arr > 0).astype(int)
         sums = b_arr.sum(axis=1)
-        A_mat = np.tile(sums[:, None], (n, 1))
+        A_mat = np.tile(sums[:, None], (1, n))
         B_mat = np.tile(sums[None, :], (n, 1))
         J_mat = b_arr @ b_arr.T
     elif terms == "quadratic":
         sums = (x_arr**2).sum(axis=1)
-        A_mat = np.tile(sums[:, None], (n, 1))
+        A_mat = np.tile(sums[:, None], (1, n))
         B_mat = np.tile(sums[None, :], (n, 1))
         J_mat = x_arr @ x_arr.T
     elif terms == "minimum":
         sums = x_arr.sum(axis=1)
-        A_mat = np.tile(sums[:, None], (n, 1))
+        A_mat = np.tile(sums[:, None], (1, n))
         B_mat = np.tile(sums[None, :], (n, 1))
         from scipy.spatial.distance import pdist, squareform
 
