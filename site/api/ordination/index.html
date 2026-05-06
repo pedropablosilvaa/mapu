@@ -2,96 +2,96 @@
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
-    
+
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      
+
         <meta name="description" content="A native Python port of the R vegan package for community ecology.">
-      
-      
-      
+
+
+
         <link rel="canonical" href="https://pedropablosilvaa.github.io/mapu/api/ordination/">
-      
-      
+
+
         <link rel="prev" href="../..">
-      
-      
+
+
         <link rel="next" href="../diversity/">
-      
-      
-        
-      
-      
+
+
+
+
+
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
-    
-    
-      
+
+
+
         <title>Ordination - mapu</title>
-      
-    
-    
+
+
+
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
-      
-      
 
 
-    
-    
-      
-    
-    
-      
-        
-        
+
+
+
+
+
+
+
+
+
+
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
-    
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
 
-    
-    
+
+
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+
+
+
+
+
   </head>
-  
-  
+
+
     <body dir="ltr">
-  
-    
+
+
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
-      
-        
+
+
         <a href="#ordination" class="md-skip">
           Skip to content
         </a>
-      
+
     </div>
     <div data-md-component="announce">
-      
+
     </div>
-    
-    
-      
+
+
+
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="mapu" class="md-header__button md-logo" aria-label="mapu" data-md-component="logo">
-      
-  
+
+
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      
+
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
@@ -103,23 +103,23 @@
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
-            
+
               Ordination
-            
+
           </span>
         </div>
       </div>
     </div>
-    
-    
+
+
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      
-      
+
+
+
+
+
         <label class="md-header__button md-icon" for="__search">
-          
+
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
@@ -128,21 +128,21 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        
+
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
+
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
-        
+
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
+
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
-      
+
         <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
+
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -156,13 +156,13 @@
     </div>
   </div>
 </div>
-      
-    
-    
+
+
+
       <div class="md-header__source">
         <a href="https://github.com/pedropablosilvaa/mapu" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
-    
+
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
@@ -170,97 +170,97 @@
   </div>
 </a>
       </div>
-    
+
   </nav>
-  
+
 </header>
-    
+
     <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-            
+
+
+
+
+
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
+
+
+
+
+
+
     <li class="md-tabs__item">
       <a href="../.." class="md-tabs__link">
-        
-  
-  
-    
-  
+
+
+
+
+
   Home
 
       </a>
     </li>
-  
 
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
+
+
+
+
+
+
+
+
+
+
+
       <li class="md-tabs__item md-tabs__item--active">
         <a href="./" class="md-tabs__link">
-          
-  
-  
+
+
+
   API Reference
 
         </a>
       </li>
-    
-  
 
-      
+
+
+
     </ul>
   </div>
 </nav>
-          
-        
-      
+
+
+
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
-          
-            
-              
+
+
+
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    
 
 
-  
+
+
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="mapu" class="md-nav__button md-logo" aria-label="mapu" data-md-component="logo">
-      
-  
+
+
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     mapu
   </label>
-  
+
     <div class="md-nav__source">
       <a href="https://github.com/pedropablosilvaa/mapu" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
-    
+
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
@@ -268,1317 +268,1317 @@
   </div>
 </a>
     </div>
-  
+
   <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
+
+
+
+
+
+
+
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
 
-    
+
+
+  <span class="md-ellipsis">
+
+
+    Home
+
+
+
   </span>
-  
-  
+
+
 
       </a>
     </li>
-  
 
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-      
-        
-      
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    API Reference
-  
 
-    
+
+
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+
+
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+
+
+
+  <span class="md-ellipsis">
+
+
+    API Reference
+
+
+
   </span>
-  
-  
+
+
 
             <span class="md-nav__icon md-icon"></span>
           </label>
-        
+
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            
-  
+
+
     API Reference
-  
+
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Ordination
-  
 
-    
+
+
+
+
+
+
+
+
+    <li class="md-nav__item md-nav__item--active">
+
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+
+
+
+
+
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+
+
+
+  <span class="md-ellipsis">
+
+
+    Ordination
+
+
+
   </span>
-  
-  
+
+
 
           <span class="md-nav__icon md-icon"></span>
         </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Ordination
-  
 
-    
+      <a href="./" class="md-nav__link md-nav__link--active">
+
+
+
+  <span class="md-ellipsis">
+
+
+    Ordination
+
+
+
   </span>
-  
-  
+
+
 
       </a>
-      
-        
+
+
 
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
+
+
+
+
+
+
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
+
         <li class="md-nav__item">
   <a href="#mapu.ordination" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         ordination
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="ordination">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.anova_rda" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         anova_rda
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="anova_rda">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.anova_rda--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.anova_rda--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.capscale" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         capscale
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="capscale">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.capscale--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.capscale--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.cca" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         cca
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="cca">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.cca--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.cca--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.cmdscale" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         cmdscale
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="cmdscale">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.cmdscale--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.cmdscale--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.envfit" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         envfit
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="envfit">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.envfit--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.envfit--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.isomap" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         isomap
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="isomap">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.isomap--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.isomap--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.metaMDS" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         metaMDS
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="metaMDS">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.metaMDS--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.metaMDS--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.pca" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         pca
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.prc" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         prc
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="prc">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.prc--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.prc--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.procrustes" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         procrustes
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="procrustes">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.procrustes--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.procrustes--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.rda" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         rda
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="rda">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.rda--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.rda--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.tolerance" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         tolerance
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.varpart" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         varpart
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.wascores" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         wascores
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="wascores">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.wascores--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.wascores--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
 
-              
-            
-              
-                
-  
-  
-  
-  
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+    </ul>
+
+</nav>
+
+    </li>
+
+
+
+
+
+
+
+
+
+
     <li class="md-nav__item">
       <a href="../diversity/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Diversity
-  
 
-    
+
+
+  <span class="md-ellipsis">
+
+
+    Diversity
+
+
+
   </span>
-  
-  
+
+
 
       </a>
     </li>
-  
 
-              
-            
-              
-                
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
     <li class="md-nav__item">
       <a href="../vegdist/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Vegdist
-  
 
-    
+
+
+  <span class="md-ellipsis">
+
+
+    Vegdist
+
+
+
   </span>
-  
-  
+
+
 
       </a>
     </li>
-  
 
-              
-            
-              
-                
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
     <li class="md-nav__item">
       <a href="../transform/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Transform
-  
 
-    
+
+
+  <span class="md-ellipsis">
+
+
+    Transform
+
+
+
   </span>
-  
-  
+
+
 
       </a>
     </li>
-  
 
-              
-            
-              
-                
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
     <li class="md-nav__item">
       <a href="../cluster/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cluster
-  
 
-    
+
+
+  <span class="md-ellipsis">
+
+
+    Cluster
+
+
+
   </span>
-  
-  
+
+
 
       </a>
     </li>
-  
 
-              
-            
-              
-                
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
     <li class="md-nav__item">
       <a href="../stats/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Stats
-  
 
-    
+
+
+  <span class="md-ellipsis">
+
+
+    Stats
+
+
+
   </span>
-  
-  
+
+
 
       </a>
     </li>
-  
 
-              
-            
+
+
+
           </ul>
         </nav>
-      
-    </li>
-  
 
-    
+    </li>
+
+
+
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
-            
-            
-              
+
+
+
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    
+
 
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
+
+
+
+
+
+
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
+
         <li class="md-nav__item">
   <a href="#mapu.ordination" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         ordination
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="ordination">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.anova_rda" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         anova_rda
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="anova_rda">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.anova_rda--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.anova_rda--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.capscale" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         capscale
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="capscale">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.capscale--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.capscale--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.cca" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         cca
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="cca">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.cca--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.cca--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.cmdscale" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         cmdscale
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="cmdscale">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.cmdscale--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.cmdscale--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.envfit" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         envfit
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="envfit">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.envfit--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.envfit--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.isomap" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         isomap
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="isomap">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.isomap--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.isomap--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.metaMDS" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         metaMDS
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="metaMDS">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.metaMDS--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.metaMDS--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.pca" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         pca
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.prc" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         prc
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="prc">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.prc--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.prc--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.procrustes" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         procrustes
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="procrustes">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.procrustes--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.procrustes--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.rda" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         rda
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="rda">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.rda--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.rda--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.tolerance" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         tolerance
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.varpart" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         varpart
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.wascores" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         wascores
-      
+
     </span>
   </a>
-  
+
     <nav class="md-nav" aria-label="wascores">
       <ul class="md-nav__list">
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.wascores--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Parameters
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
           <li class="md-nav__item">
   <a href="#mapu.ordination.wascores--returns" class="md-nav__link">
     <span class="md-ellipsis">
-      
+
         Returns
-      
+
     </span>
   </a>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-        
+
       </ul>
     </nav>
-  
+
 </li>
-      
+
     </ul>
-  
+
 </nav>
                   </div>
                 </div>
               </div>
-            
-          
-          
+
+
+
             <div class="md-content" data-md-component="content">
-              
+
               <article class="md-content__inner md-typeset">
-                
-                  
 
 
-  
-  
+
+
+
+
 
 
 <h1 id="ordination">Ordination</h1>
@@ -1629,7 +1629,7 @@
 
         <p>Permutation Analysis of Variance for Constrained Ordinations.</p>
 <p>Mimics <code>vegan::anova.cca</code> behavior specifically for Redundancy Analysis.
-Evaluates the pseudo-F statistic generated by constrained inertia vs 
+Evaluates the pseudo-F statistic generated by constrained inertia vs
 unconstrained residual inertia, mapping significance across permutations.</p>
 <h5 id="mapu.ordination.anova_rda--parameters">Parameters</h5>
 <p>x : array-like
@@ -1711,8 +1711,8 @@ permutations : int
 <span class="normal">578</span>
 <span class="normal">579</span>
 <span class="normal">580</span>
-<span class="normal">581</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">anova_rda</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> 
-              <span class="n">Y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> 
+<span class="normal">581</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">anova_rda</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+              <span class="n">Y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
               <span class="n">permutations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">999</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Permutation Analysis of Variance for Constrained Ordinations.</span>
@@ -1793,7 +1793,7 @@ permutations : int
     <div class="doc doc-contents ">
 
         <p>Constrained Analysis of Principal Coordinates (Distance-based RDA).</p>
-<p>Mimics <code>vegan::capscale</code> allowing Euclidean constrained regression 
+<p>Mimics <code>vegan::capscale</code> allowing Euclidean constrained regression
 over non-Euclidean functional coordinate projections.</p>
 <h5 id="mapu.ordination.capscale--parameters">Parameters</h5>
 <p>dist : array-like
@@ -1841,7 +1841,7 @@ Y : array-like
 <span class="normal">513</span>
 <span class="normal">514</span>
 <span class="normal">515</span>
-<span class="normal">516</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">capscale</span><span class="p">(</span><span class="n">dist</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> 
+<span class="normal">516</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">capscale</span><span class="p">(</span><span class="n">dist</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
              <span class="n">Y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Constrained Analysis of Principal Coordinates (Distance-based RDA).</span>
@@ -1894,7 +1894,7 @@ Y : array-like
     <div class="doc doc-contents ">
 
         <p>Correspondence Analysis (Unconstrained CCA).</p>
-<p>Mimics <code>vegan::cca(x)</code>. Computes the chi-squared distances and extracts 
+<p>Mimics <code>vegan::cca(x)</code>. Computes the chi-squared distances and extracts
 the principal inertias (eigenvalues) of the community matrix.</p>
 <h5 id="mapu.ordination.cca--parameters">Parameters</h5>
 <p>x : array-like
@@ -2116,7 +2116,7 @@ eig : np.ndarray
 <span class="normal">60</span>
 <span class="normal">61</span>
 <span class="normal">62</span>
-<span class="normal">63</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cmdscale</span><span class="p">(</span><span class="n">D</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> 
+<span class="normal">63</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cmdscale</span><span class="p">(</span><span class="n">D</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
              <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Classical Multidimensional Scaling (PCoA / cmdscale).</span>
@@ -2383,7 +2383,7 @@ permutations : int
     <div class="doc doc-contents ">
 
         <p>Isomap Ordination.</p>
-<p>Mimics <code>vegan::isomap</code>. Constructs a nearest-neighbors geodesic network 
+<p>Mimics <code>vegan::isomap</code>. Constructs a nearest-neighbors geodesic network
 and returns its lower-dimensional scaling coordinates.</p>
 <h5 id="mapu.ordination.isomap--parameters">Parameters</h5>
 <p>dist : array-like
@@ -2439,8 +2439,8 @@ ndim : int
 <span class="normal">477</span>
 <span class="normal">478</span>
 <span class="normal">479</span>
-<span class="normal">480</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">isomap</span><span class="p">(</span><span class="n">dist</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> 
-           <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> 
+<span class="normal">480</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">isomap</span><span class="p">(</span><span class="n">dist</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+           <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
            <span class="n">ndim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Isomap Ordination.</span>
@@ -2576,9 +2576,9 @@ max_iter : int, default 300
 <span class="normal">119</span>
 <span class="normal">120</span>
 <span class="normal">121</span>
-<span class="normal">122</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">metaMDS</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> 
-            <span class="n">distance</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;bray&quot;</span><span class="p">,</span> 
-            <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
+<span class="normal">122</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">metaMDS</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+            <span class="n">distance</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;bray&quot;</span><span class="p">,</span>
+            <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
             <span class="n">n_init</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
             <span class="n">max_iter</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2613,21 +2613,21 @@ max_iter : int, default 300
     <span class="c1"># We use precomputed distance and metric=False for non-metric MDS</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># scikit-learn &gt;= 1.8 (or whenever metric_mds was introduced)</span>
-        <span class="n">mds</span> <span class="o">=</span> <span class="n">MDS</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> 
+        <span class="n">mds</span> <span class="o">=</span> <span class="n">MDS</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
                   <span class="n">metric_mds</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                   <span class="n">init</span><span class="o">=</span><span class="s2">&quot;random&quot;</span><span class="p">,</span>
-                  <span class="n">n_init</span><span class="o">=</span><span class="n">n_init</span><span class="p">,</span> 
-                  <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span> 
+                  <span class="n">n_init</span><span class="o">=</span><span class="n">n_init</span><span class="p">,</span>
+                  <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
                   <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;precomputed&quot;</span><span class="p">,</span>
-                  <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  
+                  <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
         <span class="c1"># scikit-learn &lt; 1.8 (init might not be a valid keyword argument)</span>
-        <span class="n">mds</span> <span class="o">=</span> <span class="n">MDS</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> 
+        <span class="n">mds</span> <span class="o">=</span> <span class="n">MDS</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
                   <span class="n">metric</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                  <span class="n">n_init</span><span class="o">=</span><span class="n">n_init</span><span class="p">,</span> 
-                  <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span> 
+                  <span class="n">n_init</span><span class="o">=</span><span class="n">n_init</span><span class="p">,</span>
+                  <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
                   <span class="n">dissimilarity</span><span class="o">=</span><span class="s2">&quot;precomputed&quot;</span><span class="p">,</span>
-                  <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  
+                  <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
     <span class="n">mds_result</span> <span class="o">=</span> <span class="n">mds</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dist_matrix</span><span class="p">)</span>
 
@@ -2652,7 +2652,7 @@ max_iter : int, default 300
     <div class="doc doc-contents ">
 
         <p>Principal Component Analysis wrapper.</p>
-<p>Syntactic wrapper identical structurally mapping boundaries resolving to 
+<p>Syntactic wrapper identical structurally mapping boundaries resolving to
 <code>vegan::rda(x)</code> mathematically without hierarchical constraints.</p>
 
 
@@ -2691,7 +2691,7 @@ max_iter : int, default 300
     <div class="doc doc-contents ">
 
         <p>Principal Response Curves.</p>
-<p>Mimics <code>vegan::prc</code> parameterizing constraints uniquely isolating Time*Treatment 
+<p>Mimics <code>vegan::prc</code> parameterizing constraints uniquely isolating Time*Treatment
 interactions structurally explicitly mapping partial RDA.</p>
 <h5 id="mapu.ordination.prc--parameters">Parameters</h5>
 <p>response : array-like
@@ -2761,8 +2761,8 @@ time : array-like
 <span class="normal">709</span>
 <span class="normal">710</span>
 <span class="normal">711</span>
-<span class="normal">712</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">prc</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> 
-        <span class="n">treatment</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span> 
+<span class="normal">712</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">prc</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+        <span class="n">treatment</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span>
         <span class="n">time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Principal Response Curves.</span>
@@ -2921,7 +2921,7 @@ Y : np.ndarray
     <div class="doc doc-contents ">
 
         <p>Redundancy Analysis (Constrained / Unconstrained Principal Component Analysis).</p>
-<p>Mimics <code>vegan::rda</code>. If <code>Y</code> is provided, performs constrained redundancy 
+<p>Mimics <code>vegan::rda</code>. If <code>Y</code> is provided, performs constrained redundancy
 analysis distributing inertias between fitted constraints and residuals.
 If <code>Y</code> is None, performs unconstrained PCA.</p>
 <h5 id="mapu.ordination.rda--parameters">Parameters</h5>
@@ -3021,7 +3021,7 @@ Y : array-like, optional
 <span class="normal">233</span>
 <span class="normal">234</span>
 <span class="normal">235</span>
-<span class="normal">236</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rda</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> 
+<span class="normal">236</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rda</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
             <span class="n">Y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Redundancy Analysis (Constrained / Unconstrained Principal Component Analysis).</span>
@@ -3122,7 +3122,7 @@ Y : array-like, optional
     <div class="doc doc-contents ">
 
         <p>Species Niche Tolerance Mapping.</p>
-<p>Mimics <code>vegan::tolerance</code>. Calculates the root mean squared deviation from 
+<p>Mimics <code>vegan::tolerance</code>. Calculates the root mean squared deviation from
 species optima (centroids) structurally extracting environmental niche widths natively!</p>
 
 
@@ -3163,7 +3163,7 @@ species optima (centroids) structurally extracting environmental niche widths na
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">site_scores</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
             <span class="n">diff</span> <span class="o">=</span> <span class="n">site_scores</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">species_scores</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
             <span class="n">weighted_sq_diff</span> <span class="o">=</span> <span class="n">x_arr</span> <span class="o">*</span> <span class="p">(</span><span class="n">diff</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-            <span class="n">tol_var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weighted_sq_diff</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">x_sum</span> 
+            <span class="n">tol_var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weighted_sq_diff</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">x_sum</span>
             <span class="n">out</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tol_var</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
@@ -3185,7 +3185,7 @@ species optima (centroids) structurally extracting environmental niche widths na
     <div class="doc doc-contents ">
 
         <p>Variation Partitioning evaluating Adjusted R-square limits.</p>
-<p>Mimics <code>vegan::varpart</code>. Evaluates explicit Unique and Shared constraints inherently natively 
+<p>Mimics <code>vegan::varpart</code>. Evaluates explicit Unique and Shared constraints inherently natively
 by structuring continuous recursive redundancy iterations explicitly.
 Supports exactly 2 explicit structural variable components natively.</p>
 
@@ -3297,7 +3297,7 @@ Supports exactly 2 explicit structural variable components natively.</p>
     <div class="doc doc-contents ">
 
         <p>Weighted Averages Scores for Species.</p>
-<p>Mimics <code>vegan::wascores</code>. Computes the weighted averages of site scores 
+<p>Mimics <code>vegan::wascores</code>. Computes the weighted averages of site scores
 for species.</p>
 <h5 id="mapu.ordination.wascores--parameters">Parameters</h5>
 <p>x : array-like
@@ -3305,7 +3305,7 @@ for species.</p>
 w : array-like
     Community abundances matrix (n_sites, n_species).
 expand : bool
-    If True, expand scores so that their variance equals the variance of the 
+    If True, expand scores so that their variance equals the variance of the
     site scores (equivalent to vegan's <code>expand=TRUE</code>).</p>
 <h5 id="mapu.ordination.wascores--returns">Returns</h5>
 <p>pd.DataFrame
@@ -3372,8 +3372,8 @@ expand : bool
 <span class="normal">435</span>
 <span class="normal">436</span>
 <span class="normal">437</span>
-<span class="normal">438</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">wascores</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> 
-             <span class="n">w</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> 
+<span class="normal">438</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">wascores</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+             <span class="n">w</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
              <span class="n">expand</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Weighted Averages Scores for Species.</span>
@@ -3456,54 +3456,54 @@ expand : bool
 
 
 
-                
+
               </article>
             </div>
-          
-          
+
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-        
+
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
-  
+
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
   Back to top
 </button>
-        
+
       </main>
-      
+
         <footer class="md-footer">
-  
+
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
-  
-  
+
+
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
-  
+
 </div>
-      
+
     </div>
   </div>
 </footer>
-      
+
     </div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    
-    
-    
-      
-      
+
+
+
+
+
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
+
+
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-    
+
+
   </body>
 </html>
