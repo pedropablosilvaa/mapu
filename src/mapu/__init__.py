@@ -70,6 +70,14 @@ from .stats import (
     nestednodf,
 )
 from .cluster import spantree, cascadeKM, cophenetic
+from .viz import (
+    ordiplot,
+    ordihull,
+    ordiellipse,
+    ordispider,
+    plot_specaccum,
+    plot_rad,
+)
 
 __all__ = [
     "diversity",
@@ -134,4 +142,10 @@ __all__ = [
     "spantree",
     "cascadeKM",
     "cophenetic",
+    "ordiplot",
+    "ordihull",
+    "ordiellipse",
+    "ordispider",
+    "plot_specaccum",
+    "plot_rad",
 ]
