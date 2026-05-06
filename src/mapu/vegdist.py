@@ -187,28 +187,27 @@ def designdist(
     x_arr = np.asarray(x, dtype=float)
     n = x_arr.shape[0]
 
-    A_mat = np.zeros((n, n))
-    B_mat = np.zeros((n, n))
-    J_mat = np.zeros((n, n))
+    if terms == "binary":
+        b_arr = (x_arr > 0).astype(int)
+        sums = b_arr.sum(axis=1)
+        A_mat = np.tile(sums[:, None], (n, 1))
+        B_mat = np.tile(sums[None, :], (n, 1))
+        J_mat = b_arr @ b_arr.T
+    elif terms == "quadratic":
+        sums = (x_arr**2).sum(axis=1)
+        A_mat = np.tile(sums[:, None], (n, 1))
+        B_mat = np.tile(sums[None, :], (n, 1))
+        J_mat = x_arr @ x_arr.T
+    elif terms == "minimum":
+        sums = x_arr.sum(axis=1)
+        A_mat = np.tile(sums[:, None], (n, 1))
+        B_mat = np.tile(sums[None, :], (n, 1))
+        from scipy.spatial.distance import pdist, squareform
 
-    for i in range(n):
-        for j in range(n):
-            if terms == "binary":
-                i_vec = x_arr[i] > 0
-                j_vec = x_arr[j] > 0
-                A_mat[i, j] = np.sum(i_vec)
-                B_mat[i, j] = np.sum(j_vec)
-                J_mat[i, j] = np.sum(i_vec & j_vec)
-            elif terms == "quadratic":
-                A_mat[i, j] = np.sum(x_arr[i] ** 2)
-                B_mat[i, j] = np.sum(x_arr[j] ** 2)
-                J_mat[i, j] = np.sum(x_arr[i] * x_arr[j])
-            elif terms == "minimum":
-                A_mat[i, j] = np.sum(x_arr[i])
-                B_mat[i, j] = np.sum(x_arr[j])
-                J_mat[i, j] = np.sum(np.minimum(x_arr[i], x_arr[j]))
-            else:
-                raise ValueError("terms must be 'binary', 'quadratic', or 'minimum'")
+        cityblock = squareform(pdist(x_arr, metric="cityblock"))
+        J_mat = (A_mat + B_mat - cityblock) / 2.0
+    else:
+        raise ValueError("terms must be 'binary', 'quadratic', or 'minimum'")
 
     local_scope = {"A": A_mat, "B": B_mat, "J": J_mat, "np": np}
     out = eval(method, {"__builtins__": {}}, local_scope)

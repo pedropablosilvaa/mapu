@@ -941,31 +941,47 @@ def nestednodf(x: Union[np.ndarray, pd.DataFrame], order: bool = True) -> dict:
     row_sums = x_inc.sum(axis=1)
     col_sums = x_inc.sum(axis=0)
 
-    row_paired = []
-    for i in range(r - 1):
-        for j in range(i + 1, r):
-            if row_sums[i] <= row_sums[j]:
-                row_paired.append(0.0)
-            else:
-                overlap = np.sum(x_inc[i] & x_inc[j])
-                val = 100.0 * overlap / row_sums[j] if row_sums[j] > 0 else 0.0
-                row_paired.append(val)
+    # Row overlaps
+    overlap_rows = x_inc @ x_inc.T
+    row_sums_i = row_sums[:, None]
+    row_sums_j = row_sums[None, :]
+    valid_rows = row_sums_i > row_sums_j
+    ii, jj = np.triu_indices(r, k=1)
 
-    col_paired = []
-    for i in range(c - 1):
-        for j in range(i + 1, c):
-            if col_sums[i] <= col_sums[j]:
-                col_paired.append(0.0)
-            else:
-                overlap = np.sum(x_inc[:, i] & x_inc[:, j])
-                val = 100.0 * overlap / col_sums[j] if col_sums[j] > 0 else 0.0
-                col_paired.append(val)
+    valid_pairs_r = valid_rows[ii, jj]
+    overlaps_r = overlap_rows[ii, jj]
+    denominators_r = row_sums[jj]
 
-    N_rows = np.mean(row_paired) if len(row_paired) > 0 else 0.0
-    N_cols = np.mean(col_paired) if len(col_paired) > 0 else 0.0
+    with np.errstate(divide="ignore", invalid="ignore"):
+        vals_r = np.where(
+            valid_pairs_r & (denominators_r > 0),
+            100.0 * overlaps_r / denominators_r,
+            0.0,
+        )
+
+    # Column overlaps
+    overlap_cols = x_inc.T @ x_inc
+    col_sums_i = col_sums[:, None]
+    col_sums_j = col_sums[None, :]
+    valid_cols = col_sums_i > col_sums_j
+    ii_c, jj_c = np.triu_indices(c, k=1)
+
+    valid_pairs_c = valid_cols[ii_c, jj_c]
+    overlaps_c = overlap_cols[ii_c, jj_c]
+    denominators_c = col_sums[jj_c]
+
+    with np.errstate(divide="ignore", invalid="ignore"):
+        vals_c = np.where(
+            valid_pairs_c & (denominators_c > 0),
+            100.0 * overlaps_c / denominators_c,
+            0.0,
+        )
+
+    N_rows = np.mean(vals_r) if len(vals_r) > 0 else 0.0
+    N_cols = np.mean(vals_c) if len(vals_c) > 0 else 0.0
     N_total = (
-        np.mean(row_paired + col_paired)
-        if len(row_paired) + len(col_paired) > 0
+        np.mean(np.concatenate([vals_r, vals_c]))
+        if (len(vals_r) + len(vals_c)) > 0
         else 0.0
     )
 
