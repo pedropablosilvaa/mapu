@@ -394,10 +394,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-usage" class="md-nav__link">
+  <a href="#quick-tutorial-replicating-r-vegan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example Usage
+        Quick Tutorial: Replicating R vegan
       
     </span>
   </a>
@@ -771,10 +771,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-usage" class="md-nav__link">
+  <a href="#quick-tutorial-replicating-r-vegan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example Usage
+        Quick Tutorial: Replicating R vegan
       
     </span>
   </a>
@@ -813,13 +813,18 @@
 
 
 <h1 id="mapu">mapu</h1>
+<p><a href="https://github.com/pedropablosilvaa/mapu/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/pedropablosilvaa/mapu/actions/workflows/ci.yml/badge.svg" /></a>
+<a href="https://pedropablosilvaa.github.io/mapu/"><img alt="Docs" src="https://github.com/pedropablosilvaa/mapu/actions/workflows/docs.yml/badge.svg" /></a>
+<a href="https://github.com/pedropablosilvaa/mapu"><img alt="Python Versions" src="https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue" /></a>
+<a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a></p>
 <p>A native Python implementation of the classic R package <a href="https://cran.r-project.org/web/packages/vegan/index.html"><code>vegan</code></a> for community ecology.</p>
 <p>This package aims to provide ecologists and data scientists using Python with rapid, pure-Python ports of popular <code>vegan</code> functions, including diversity indices, distance matrices (<code>vegdist</code>), ordination techniques, and multivariate statistical tests.</p>
+<hr />
 <h2 id="installation">Installation</h2>
 <p>You can install <code>mapu</code> using <code>pip</code>:</p>
 <pre><code class="language-bash">pip install mapu
 </code></pre>
-<p>Or using <code>uv</code> for ultra-fast dependency resolution and installation:</p>
+<p>Or using <a href="https://github.com/astral-sh/uv"><code>uv</code></a> for ultra-fast dependency resolution and installation:</p>
 <pre><code class="language-bash">uv pip install mapu
 </code></pre>
 <h3 id="development-installation">Development Installation</h3>
@@ -830,36 +835,54 @@ uv venv
 source .venv/bin/activate  # On Unix/macOS
 uv pip install -e &quot;.[dev,docs]&quot;
 </code></pre>
+<hr />
 <h2 id="features">Features</h2>
 <p>The library currently supports a wide array of functions mirroring R <code>vegan</code>:</p>
 <ul>
-<li><strong>Diversity Analysis</strong>: <code>diversity</code> (Shannon, Simpson, etc.), <code>fisher_alpha</code>, <code>specnumber</code>, <code>renyi</code>, <code>tsallis</code>, rarefaction functions (<code>rarefy</code>, <code>rrarefy</code>), and species accumulation curves.</li>
-<li><strong>Distance Matrices</strong>: <code>vegdist</code> (Bray-Curtis, Jaccard, Euclidean, Manhattan, Gower, etc.), <code>designdist</code>.</li>
+<li><strong>Built-in Datasets</strong>: <code>load_dune()</code>, <code>load_dune_env()</code>.</li>
+<li><strong>Diversity Analysis</strong>: <code>diversity</code> (Shannon, Simpson, Inverse Simpson), <code>specnumber</code>, <code>fisher_alpha</code>, <code>renyi</code>, <code>tsallis</code>, rarefaction functions (<code>rarefy</code>, <code>rrarefy</code>, <code>drarefy</code>), and species accumulation curves (<code>specaccum</code>, <code>poolaccum</code>).</li>
+<li><strong>Distance Matrices</strong>: <code>vegdist</code> (Bray-Curtis, Jaccard, Euclidean, Manhattan, Gower, etc.), <code>designdist</code>, <code>stepacross</code>.</li>
 <li><strong>Ordination</strong>: Unconstrained (PCoA/<code>cmdscale</code>, PCA, NMDS/<code>metaMDS</code>, <code>isomap</code>) and Constrained (<code>rda</code>, <code>cca</code>, <code>capscale</code>).</li>
 <li><strong>Data Transformation</strong>: <code>decostand</code>, <code>wisconsin</code>.</li>
 <li><strong>Statistical Tests</strong>: <code>adonis</code> (PERMANOVA), <code>anosim</code>, <code>mantel</code>, <code>mrpp</code>, <code>simper</code>, <code>betadisper</code>.</li>
 <li><strong>Clustering</strong>: <code>spantree</code>, <code>cascadeKM</code>, <code>cophenetic</code>.</li>
+<li><strong>Visualization</strong>: <code>ordiplot</code>, <code>ordihull</code>, <code>ordiellipse</code>, <code>ordispider</code>, <code>plot_specaccum</code>, <code>plot_rad</code>.</li>
 </ul>
-<h2 id="example-usage">Example Usage</h2>
-<pre><code class="language-python">import numpy as np
-import pandas as pd
-from mapu import vegdist, metaMDS, diversity
+<hr />
+<h2 id="quick-tutorial-replicating-r-vegan">Quick Tutorial: Replicating R <code>vegan</code></h2>
+<p>Below is an overview of replicating the classic R <code>vegan</code> workflow using the built-in Dutch Dune Meadow dataset. For the full in-depth walkthrough, see the dedicated <a href="tutorial/">Tutorial</a>.</p>
+<pre><code class="language-python">from mapu import (
+    load_dune,
+    load_dune_env,
+    diversity,
+    specnumber,
+    vegdist,
+    metaMDS,
+    anosim,
+)
 
-# Create a mock species abundance matrix (sites x species)
-np.random.seed(42)
-community_data = pd.DataFrame(np.random.poisson(lam=2, size=(10, 20)))
+# 1. Load dune vegetation and environmental datasets
+dune = load_dune()
+dune_env = load_dune_env()
 
-# Calculate Bray-Curtis distance
-bray_dist = vegdist(community_data, method=&quot;bray&quot;)
+# 2. Compute diversity indices (matching R vegan)
+simpson_div = diversity(dune, index=&quot;simpson&quot;)
+shannon_div = diversity(dune, index=&quot;shannon&quot;)
+richness = specnumber(dune)
 
-# Perform Non-metric Multidimensional Scaling (NMDS)
-nmds_result = metaMDS(community_data, distance=&quot;bray&quot;, k=2)
-print(&quot;Stress:&quot;, nmds_result[&quot;stress&quot;])
+# 3. Compute Bray-Curtis distance matrix
+bray_dist = vegdist(dune, method=&quot;bray&quot;)
 
-# Calculate Shannon diversity
-shannon_h = diversity(community_data, index=&quot;shannon&quot;)
-print(&quot;Shannon Diversity:\n&quot;, shannon_h)
+# 4. Perform NMDS ordination
+nmds = metaMDS(dune, distance=&quot;bray&quot;, k=2, trymax=20)
+print(&quot;NMDS Stress:&quot;, nmds[&quot;stress&quot;])
+
+# 5. Test management effects with ANOSIM
+management = dune_env[&quot;Management&quot;].values
+anosim_result = anosim(dune, grouping=management, distance=&quot;bray&quot;, permutations=999)
+print(f&quot;ANOSIM R: {anosim_result['statistic']:.4f}, p-value: {anosim_result['significance']:.4f}&quot;)
 </code></pre>
+<hr />
 <h2 id="license">License</h2>
 <p>This project is licensed under the MIT License - see the LICENSE file for details.</p>
 
