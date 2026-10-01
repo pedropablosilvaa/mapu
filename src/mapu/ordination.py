@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from typing import Union, Tuple
+from typing import Union, Tuple, Optional
 from sklearn.manifold import MDS
 from mapu.vegdist import vegdist
 from scipy.spatial.distance import squareform
@@ -71,7 +71,7 @@ def metaMDS(
     k: int = 2,
     n_init: int = 10,
     max_iter: int = 300,
-    trymax: int = None,
+    trymax: Optional[int] = None,
 ) -> dict:
     """
     Non-metric Multidimensional Scaling (NMDS).
