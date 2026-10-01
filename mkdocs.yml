@@ -29,6 +29,7 @@ plugins:
 
 nav:
   - Home: index.md
+  - Tutorial: tutorial.md
   - API Reference:
       - Ordination: api/ordination.md
       - Diversity: api/diversity.md
@@ -36,3 +37,4 @@ nav:
       - Transform: api/transform.md
       - Cluster: api/cluster.md
       - Stats: api/stats.md
+      - Datasets: api/datasets.md

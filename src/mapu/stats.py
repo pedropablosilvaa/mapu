@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from typing import Union
 from scipy.stats import rankdata
+from scipy.spatial.distance import squareform
 from mapu.vegdist import vegdist
 
 
@@ -37,6 +38,12 @@ def anosim(
     """
     # 1. Compute distance matrix
     dist_vector = vegdist(x, method=distance, upper=False)
+
+    # Ensure dist_vector is a condensed 1D array
+    if isinstance(dist_vector, pd.DataFrame):
+        dist_vector = squareform(dist_vector.values, checks=False)
+    elif isinstance(dist_vector, np.ndarray) and dist_vector.ndim == 2:
+        dist_vector = squareform(dist_vector, checks=False)
 
     # 2. Get the condensed index mappings for pair (i, j)
     # The condensed distance matrix from `pdist` or `vegdist` length is N*(N-1)/2
@@ -85,7 +92,6 @@ def anosim(
 
 
 from scipy.stats import pearsonr, spearmanr
-from scipy.spatial.distance import squareform
 
 
 def mantel(

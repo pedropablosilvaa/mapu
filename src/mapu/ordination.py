@@ -71,7 +71,8 @@ def metaMDS(
     k: int = 2,
     n_init: int = 10,
     max_iter: int = 300,
-) -> np.ndarray:
+    trymax: int = None,
+) -> dict:
     """
     Non-metric Multidimensional Scaling (NMDS).
 
@@ -91,14 +92,26 @@ def metaMDS(
         Number of random initializations to find the global minimum stress.
     max_iter : int, default 300
         Maximum number of iterations for a single run.
+    trymax : int, optional
+        Alias for ``n_init`` (for R-style API compatibility with
+        ``vegan::metaMDS``).  When provided, overrides ``n_init``.
 
     Returns
     -------
-    np.ndarray
-        Coordinates of the points in k dimensions.
+    dict
+        A dictionary containing:
+        - "points": np.ndarray — Coordinates of the points in k dimensions.
+        - "stress": float — The final stress value (Kruskal stress-1).
+        - "distance": str — The distance metric used.
+        - "k": int — Number of dimensions.
     """
+    if trymax is not None:
+        n_init = trymax
+
     # 1. Compute distance matrix
     dist_matrix = vegdist(x, method=distance, upper=True)
+    if isinstance(dist_matrix, pd.DataFrame):
+        dist_matrix = dist_matrix.values
 
     # 2. Run Non-metric MDS using scikit-learn
     # We use precomputed distance and metric=False for non-metric MDS
@@ -126,9 +139,12 @@ def metaMDS(
 
     mds_result = mds.fit(dist_matrix)
 
-    # In a full port, we would also return species scores, stress values, etc.
-    # For now, return the sample coordinates
-    return mds_result.embedding_
+    return {
+        "points": mds_result.embedding_,
+        "stress": mds_result.stress_,
+        "distance": distance,
+        "k": k,
+    }
 
 
 from scipy.spatial import procrustes as scipy_procrustes

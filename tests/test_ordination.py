@@ -25,6 +25,11 @@ def test_metaMDS():
     data = np.random.randint(0, 10, size=(10, 5))
 
     # Run NMDS
-    coords = metaMDS(data, distance="bray", k=2, n_init=1)
+    result = metaMDS(data, distance="bray", k=2, n_init=1)
 
-    assert coords.shape == (10, 2)
+    assert isinstance(result, dict)
+    assert result["points"].shape == (10, 2)
+    assert "stress" in result
+    assert result["stress"] >= 0
+    assert result["distance"] == "bray"
+    assert result["k"] == 2

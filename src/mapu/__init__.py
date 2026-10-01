@@ -70,6 +70,7 @@ from .stats import (
     nestednodf,
 )
 from .cluster import spantree, cascadeKM, cophenetic
+from .datasets import load_dune, load_dune_env
 from .viz import (
     ordiplot,
     ordihull,
@@ -142,6 +143,8 @@ __all__ = [
     "spantree",
     "cascadeKM",
     "cophenetic",
+    "load_dune",
+    "load_dune_env",
     "ordiplot",
     "ordihull",
     "ordiellipse",

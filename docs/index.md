@@ -57,7 +57,7 @@ bray_dist = vegdist(community_data, method="bray")
 
 # Perform Non-metric Multidimensional Scaling (NMDS)
 nmds_result = metaMDS(community_data, distance="bray", k=2)
-print("Stress:", nmds_result.stress)
+print("Stress:", nmds_result["stress"])
 
 # Calculate Shannon diversity
 shannon_h = diversity(community_data, index="shannon")

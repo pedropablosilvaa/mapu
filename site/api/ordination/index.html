@@ -2,96 +2,96 @@
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
-
+    
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-
+      
         <meta name="description" content="A native Python port of the R vegan package for community ecology.">
-
-
-
+      
+      
+      
         <link rel="canonical" href="https://pedropablosilvaa.github.io/mapu/api/ordination/">
-
-
-        <link rel="prev" href="../..">
-
-
+      
+      
+        <link rel="prev" href="../../tutorial/">
+      
+      
         <link rel="next" href="../diversity/">
-
-
-
-
-
+      
+      
+        
+      
+      
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
-
-
-
+    
+    
+      
         <title>Ordination - mapu</title>
-
-
-
+      
+    
+    
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
 
 
-
-
-
-
-
-
-
-
-
-
+    
+    
+      
+    
+    
+      
+        
+        
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-
-
-
+      
+    
+    
       <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
-
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-
-
-
-
+    
+    
   </head>
-
-
+  
+  
     <body dir="ltr">
-
-
+  
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
-
-
+      
+        
         <a href="#ordination" class="md-skip">
           Skip to content
         </a>
-
+      
     </div>
     <div data-md-component="announce">
-
+      
     </div>
-
-
-
+    
+    
+      
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="mapu" class="md-header__button md-logo" aria-label="mapu" data-md-component="logo">
-
-
+      
+  
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-
+      
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
@@ -103,23 +103,23 @@
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
-
+            
               Ordination
-
+            
           </span>
         </div>
       </div>
     </div>
-
-
+    
+    
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-
-
-
-
-
+    
+    
+    
+      
+      
         <label class="md-header__button md-icon" for="__search">
-
+          
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
@@ -128,21 +128,21 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
-
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-
+          
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
-
+      
         <div class="md-search__suggest" data-md-component="search-suggest"></div>
-
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -156,13 +156,13 @@
     </div>
   </div>
 </div>
-
-
-
+      
+    
+    
       <div class="md-header__source">
         <a href="https://github.com/pedropablosilvaa/mapu" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
-
+    
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
@@ -170,97 +170,116 @@
   </div>
 </a>
       </div>
-
+    
   </nav>
-
+  
 </header>
-
+    
     <div class="md-container" data-md-component="container">
-
-
-
-
-
+      
+      
+        
+          
+            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
-
-
-
-
-
-
+      
+        
+  
+  
+  
+  
     <li class="md-tabs__item">
       <a href="../.." class="md-tabs__link">
-
-
-
-
-
+        
+  
+  
+    
+  
   Home
 
       </a>
     </li>
+  
 
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorial/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tutorial
 
+      </a>
+    </li>
+  
 
-
-
-
-
-
-
-
-
-
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
       <li class="md-tabs__item md-tabs__item--active">
         <a href="./" class="md-tabs__link">
-
-
-
+          
+  
+  
   API Reference
 
         </a>
       </li>
+    
+  
 
-
-
-
+      
     </ul>
   </div>
 </nav>
-
-
-
+          
+        
+      
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
-
-
-
+          
+            
+              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
+                    
 
 
-
-
+  
 
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="mapu" class="md-nav__button md-logo" aria-label="mapu" data-md-component="logo">
-
-
+      
+  
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     mapu
   </label>
-
+  
     <div class="md-nav__source">
       <a href="https://github.com/pedropablosilvaa/mapu" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
-
+    
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
@@ -268,1317 +287,1372 @@
   </div>
 </a>
     </div>
-
+  
   <ul class="md-nav__list" data-md-scrollfix>
-
-
-
-
-
-
-
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
-
-
-
+        
+  
+  
   <span class="md-ellipsis">
-
-
+    
+  
     Home
+  
 
-
-
+    
   </span>
-
-
+  
+  
 
       </a>
     </li>
+  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-
-
-
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
-
-
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
-
-
-
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        
+  
+  
   <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
 
-
-    API Reference
-
-
-
+    
   </span>
+  
+  
 
+      </a>
+    </li>
+  
 
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
 
             <span class="md-nav__icon md-icon"></span>
           </label>
-
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-
-
+            
+  
     API Reference
-
+  
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-
-
-
-
-
-
-
-
-
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
-
+      
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-
-
-
-
-
+      
+      
+        
+      
+      
         <label class="md-nav__link md-nav__link--active" for="__toc">
-
-
-
+          
+  
+  
   <span class="md-ellipsis">
-
-
+    
+  
     Ordination
+  
 
-
-
+    
   </span>
-
-
+  
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
-
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-
-
-
+        
+  
+  
   <span class="md-ellipsis">
-
-
+    
+  
     Ordination
+  
 
-
-
+    
   </span>
-
-
+  
+  
 
       </a>
-
-
+      
+        
 
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-
-
-
-
-
-
+  
+  
+  
+    
+  
+  
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-
+      
         <li class="md-nav__item">
   <a href="#mapu.ordination" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         ordination
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="ordination">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.anova_rda" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         anova_rda
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="anova_rda">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.anova_rda--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.anova_rda--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.capscale" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         capscale
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="capscale">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.capscale--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.capscale--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.cca" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         cca
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="cca">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.cca--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.cca--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.cmdscale" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         cmdscale
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="cmdscale">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.cmdscale--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.cmdscale--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.envfit" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         envfit
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="envfit">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.envfit--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.envfit--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.isomap" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         isomap
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="isomap">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.isomap--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.isomap--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.metaMDS" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         metaMDS
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="metaMDS">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.metaMDS--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.metaMDS--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.pca" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         pca
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.prc" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         prc
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="prc">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.prc--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.prc--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.procrustes" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         procrustes
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="procrustes">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.procrustes--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.procrustes--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.rda" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         rda
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="rda">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.rda--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.rda--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.tolerance" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         tolerance
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.varpart" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         varpart
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.wascores" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         wascores
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="wascores">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.wascores--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.wascores--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+      
     </ul>
-
+  
 </nav>
-
+      
     </li>
+  
 
-
-
-
-
-
-
-
-
-
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../diversity/" class="md-nav__link">
-
-
-
+        
+  
+  
   <span class="md-ellipsis">
-
-
+    
+  
     Diversity
+  
 
-
-
+    
   </span>
-
-
+  
+  
 
       </a>
     </li>
+  
 
-
-
-
-
-
-
-
-
-
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../vegdist/" class="md-nav__link">
-
-
-
+        
+  
+  
   <span class="md-ellipsis">
-
-
+    
+  
     Vegdist
+  
 
-
-
+    
   </span>
-
-
+  
+  
 
       </a>
     </li>
+  
 
-
-
-
-
-
-
-
-
-
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../transform/" class="md-nav__link">
-
-
-
+        
+  
+  
   <span class="md-ellipsis">
-
-
+    
+  
     Transform
+  
 
-
-
+    
   </span>
-
-
+  
+  
 
       </a>
     </li>
+  
 
-
-
-
-
-
-
-
-
-
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../cluster/" class="md-nav__link">
-
-
-
+        
+  
+  
   <span class="md-ellipsis">
-
-
+    
+  
     Cluster
+  
 
-
-
+    
   </span>
-
-
+  
+  
 
       </a>
     </li>
+  
 
-
-
-
-
-
-
-
-
-
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../stats/" class="md-nav__link">
-
-
-
+        
+  
+  
   <span class="md-ellipsis">
-
-
+    
+  
     Stats
+  
 
-
-
+    
   </span>
-
-
+  
+  
 
       </a>
     </li>
+  
 
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datasets
+  
 
+    
+  </span>
+  
+  
 
+      </a>
+    </li>
+  
 
+              
+            
           </ul>
         </nav>
-
+      
     </li>
+  
 
-
-
+    
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
-
-
-
+            
+            
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-
+                    
 
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-
-
-
-
-
-
+  
+  
+  
+    
+  
+  
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-
+      
         <li class="md-nav__item">
   <a href="#mapu.ordination" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         ordination
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="ordination">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.anova_rda" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         anova_rda
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="anova_rda">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.anova_rda--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.anova_rda--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.capscale" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         capscale
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="capscale">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.capscale--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.capscale--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.cca" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         cca
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="cca">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.cca--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.cca--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.cmdscale" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         cmdscale
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="cmdscale">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.cmdscale--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.cmdscale--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.envfit" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         envfit
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="envfit">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.envfit--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.envfit--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.isomap" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         isomap
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="isomap">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.isomap--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.isomap--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.metaMDS" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         metaMDS
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="metaMDS">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.metaMDS--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.metaMDS--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.pca" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         pca
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.prc" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         prc
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="prc">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.prc--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.prc--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.procrustes" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         procrustes
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="procrustes">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.procrustes--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.procrustes--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.rda" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         rda
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="rda">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.rda--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.rda--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.tolerance" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         tolerance
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.varpart" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         varpart
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.wascores" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         wascores
-
+      
     </span>
   </a>
-
+  
     <nav class="md-nav" aria-label="wascores">
       <ul class="md-nav__list">
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.wascores--parameters" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Parameters
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
           <li class="md-nav__item">
   <a href="#mapu.ordination.wascores--returns" class="md-nav__link">
     <span class="md-ellipsis">
-
+      
         Returns
-
+      
     </span>
   </a>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+        
       </ul>
     </nav>
-
+  
 </li>
-
+      
     </ul>
-
+  
 </nav>
                   </div>
                 </div>
               </div>
-
-
-
+            
+          
+          
             <div class="md-content" data-md-component="content">
-
+              
               <article class="md-content__inner md-typeset">
+                
+                  
 
 
-
-
-
-
+  
+  
 
 
 <h1 id="ordination">Ordination</h1>
@@ -1648,27 +1722,7 @@ permutations : int
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">518</span>
-<span class="normal">519</span>
-<span class="normal">520</span>
-<span class="normal">521</span>
-<span class="normal">522</span>
-<span class="normal">523</span>
-<span class="normal">524</span>
-<span class="normal">525</span>
-<span class="normal">526</span>
-<span class="normal">527</span>
-<span class="normal">528</span>
-<span class="normal">529</span>
-<span class="normal">530</span>
-<span class="normal">531</span>
-<span class="normal">532</span>
-<span class="normal">533</span>
-<span class="normal">534</span>
-<span class="normal">535</span>
-<span class="normal">536</span>
-<span class="normal">537</span>
-<span class="normal">538</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">538</span>
 <span class="normal">539</span>
 <span class="normal">540</span>
 <span class="normal">541</span>
@@ -1711,14 +1765,33 @@ permutations : int
 <span class="normal">578</span>
 <span class="normal">579</span>
 <span class="normal">580</span>
-<span class="normal">581</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">anova_rda</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
-              <span class="n">Y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
-              <span class="n">permutations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">999</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="normal">581</span>
+<span class="normal">582</span>
+<span class="normal">583</span>
+<span class="normal">584</span>
+<span class="normal">585</span>
+<span class="normal">586</span>
+<span class="normal">587</span>
+<span class="normal">588</span>
+<span class="normal">589</span>
+<span class="normal">590</span>
+<span class="normal">591</span>
+<span class="normal">592</span>
+<span class="normal">593</span>
+<span class="normal">594</span>
+<span class="normal">595</span>
+<span class="normal">596</span>
+<span class="normal">597</span>
+<span class="normal">598</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">anova_rda</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+    <span class="n">Y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+    <span class="n">permutations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">999</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Permutation Analysis of Variance for Constrained Ordinations.</span>
 
 <span class="sd">    Mimics `vegan::anova.cca` behavior specifically for Redundancy Analysis.</span>
-<span class="sd">    Evaluates the pseudo-F statistic generated by constrained inertia vs </span>
+<span class="sd">    Evaluates the pseudo-F statistic generated by constrained inertia vs</span>
 <span class="sd">    unconstrained residual inertia, mapping significance across permutations.</span>
 
 <span class="sd">    Parameters</span>
@@ -1769,12 +1842,7 @@ permutations : int
 
     <span class="n">p_val</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">perm_f</span> <span class="o">&gt;=</span> <span class="n">f_obs</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">permutations</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="n">f_obs</span><span class="p">,</span>
-        <span class="s2">&quot;p_value&quot;</span><span class="p">:</span> <span class="n">p_val</span><span class="p">,</span>
-        <span class="s2">&quot;df_model&quot;</span><span class="p">:</span> <span class="n">df_cca</span><span class="p">,</span>
-        <span class="s2">&quot;df_res&quot;</span><span class="p">:</span> <span class="n">df_ca</span>
-    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="n">f_obs</span><span class="p">,</span> <span class="s2">&quot;p_value&quot;</span><span class="p">:</span> <span class="n">p_val</span><span class="p">,</span> <span class="s2">&quot;df_model&quot;</span><span class="p">:</span> <span class="n">df_cca</span><span class="p">,</span> <span class="s2">&quot;df_res&quot;</span><span class="p">:</span> <span class="n">df_ca</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1807,25 +1875,7 @@ Y : array-like
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">482</span>
-<span class="normal">483</span>
-<span class="normal">484</span>
-<span class="normal">485</span>
-<span class="normal">486</span>
-<span class="normal">487</span>
-<span class="normal">488</span>
-<span class="normal">489</span>
-<span class="normal">490</span>
-<span class="normal">491</span>
-<span class="normal">492</span>
-<span class="normal">493</span>
-<span class="normal">494</span>
-<span class="normal">495</span>
-<span class="normal">496</span>
-<span class="normal">497</span>
-<span class="normal">498</span>
-<span class="normal">499</span>
-<span class="normal">500</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">500</span>
 <span class="normal">501</span>
 <span class="normal">502</span>
 <span class="normal">503</span>
@@ -1841,12 +1891,32 @@ Y : array-like
 <span class="normal">513</span>
 <span class="normal">514</span>
 <span class="normal">515</span>
-<span class="normal">516</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">capscale</span><span class="p">(</span><span class="n">dist</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
-             <span class="n">Y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="normal">516</span>
+<span class="normal">517</span>
+<span class="normal">518</span>
+<span class="normal">519</span>
+<span class="normal">520</span>
+<span class="normal">521</span>
+<span class="normal">522</span>
+<span class="normal">523</span>
+<span class="normal">524</span>
+<span class="normal">525</span>
+<span class="normal">526</span>
+<span class="normal">527</span>
+<span class="normal">528</span>
+<span class="normal">529</span>
+<span class="normal">530</span>
+<span class="normal">531</span>
+<span class="normal">532</span>
+<span class="normal">533</span>
+<span class="normal">534</span>
+<span class="normal">535</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">capscale</span><span class="p">(</span>
+    <span class="n">dist</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="n">Y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Constrained Analysis of Principal Coordinates (Distance-based RDA).</span>
 
-<span class="sd">    Mimics `vegan::capscale` allowing Euclidean constrained regression </span>
+<span class="sd">    Mimics `vegan::capscale` allowing Euclidean constrained regression</span>
 <span class="sd">    over non-Euclidean functional coordinate projections.</span>
 
 <span class="sd">    Parameters</span>
@@ -1863,7 +1933,7 @@ Y : array-like
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">dist_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 
-    <span class="c1"># Squareform ensures we can extract dimensions </span>
+    <span class="c1"># Squareform ensures we can extract dimensions</span>
     <span class="k">if</span> <span class="n">dist_arr</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">dist_sq</span> <span class="o">=</span> <span class="n">squareform</span><span class="p">(</span><span class="n">dist_arr</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -1907,25 +1977,7 @@ the principal inertias (eigenvalues) of the community matrix.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">318</span>
-<span class="normal">319</span>
-<span class="normal">320</span>
-<span class="normal">321</span>
-<span class="normal">322</span>
-<span class="normal">323</span>
-<span class="normal">324</span>
-<span class="normal">325</span>
-<span class="normal">326</span>
-<span class="normal">327</span>
-<span class="normal">328</span>
-<span class="normal">329</span>
-<span class="normal">330</span>
-<span class="normal">331</span>
-<span class="normal">332</span>
-<span class="normal">333</span>
-<span class="normal">334</span>
-<span class="normal">335</span>
-<span class="normal">336</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">336</span>
 <span class="normal">337</span>
 <span class="normal">338</span>
 <span class="normal">339</span>
@@ -1967,11 +2019,26 @@ the principal inertias (eigenvalues) of the community matrix.</p>
 <span class="normal">375</span>
 <span class="normal">376</span>
 <span class="normal">377</span>
-<span class="normal">378</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cca</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cca</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Correspondence Analysis (Unconstrained CCA).</span>
 
-<span class="sd">    Mimics `vegan::cca(x)`. Computes the chi-squared distances and extracts </span>
+<span class="sd">    Mimics `vegan::cca(x)`. Computes the chi-squared distances and extracts</span>
 <span class="sd">    the principal inertias (eigenvalues) of the community matrix.</span>
 
 <span class="sd">    Parameters</span>
@@ -2017,17 +2084,14 @@ the principal inertias (eigenvalues) of the community matrix.</p>
     <span class="c1"># SVD</span>
     <span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Vt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-    <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">S</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">S</span><span class="o">**</span><span class="mi">2</span>
     <span class="c1"># filter tiny values</span>
     <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">eigenvalues</span><span class="p">[</span><span class="n">eigenvalues</span> <span class="o">&gt;</span> <span class="mf">1e-12</span><span class="p">]</span>
 
     <span class="c1"># Total inertia: sum of squared elements of Z</span>
-    <span class="n">tot_chi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Z</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">tot_chi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;eigenvalues&quot;</span><span class="p">:</span> <span class="n">eigenvalues</span><span class="p">,</span>
-        <span class="s2">&quot;tot.chi&quot;</span><span class="p">:</span> <span class="n">tot_chi</span>
-    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;eigenvalues&quot;</span><span class="p">:</span> <span class="n">eigenvalues</span><span class="p">,</span> <span class="s2">&quot;tot.chi&quot;</span><span class="p">:</span> <span class="n">tot_chi</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2061,8 +2125,7 @@ eig : np.ndarray
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 8</span>
-<span class="normal"> 9</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
@@ -2116,8 +2179,11 @@ eig : np.ndarray
 <span class="normal">60</span>
 <span class="normal">61</span>
 <span class="normal">62</span>
-<span class="normal">63</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cmdscale</span><span class="p">(</span><span class="n">D</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
-             <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cmdscale</span><span class="p">(</span>
+    <span class="n">D</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Classical Multidimensional Scaling (PCoA / cmdscale).</span>
 
@@ -2208,28 +2274,7 @@ permutations : int
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">238</span>
-<span class="normal">239</span>
-<span class="normal">240</span>
-<span class="normal">241</span>
-<span class="normal">242</span>
-<span class="normal">243</span>
-<span class="normal">244</span>
-<span class="normal">245</span>
-<span class="normal">246</span>
-<span class="normal">247</span>
-<span class="normal">248</span>
-<span class="normal">249</span>
-<span class="normal">250</span>
-<span class="normal">251</span>
-<span class="normal">252</span>
-<span class="normal">253</span>
-<span class="normal">254</span>
-<span class="normal">255</span>
-<span class="normal">256</span>
-<span class="normal">257</span>
-<span class="normal">258</span>
-<span class="normal">259</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">259</span>
 <span class="normal">260</span>
 <span class="normal">261</span>
 <span class="normal">262</span>
@@ -2286,7 +2331,24 @@ permutations : int
 <span class="normal">313</span>
 <span class="normal">314</span>
 <span class="normal">315</span>
-<span class="normal">316</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">envfit</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">permutations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">999</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">envfit</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">permutations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">999</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Fits Environmental Vectors onto an Ordination Grid.</span>
 
@@ -2343,7 +2405,7 @@ permutations : int
             <span class="n">vectors</span><span class="p">[</span><span class="n">v</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">/</span> <span class="n">norm_beta</span>
 
         <span class="n">y_fit</span> <span class="o">=</span> <span class="n">X_c</span> <span class="o">@</span> <span class="n">beta</span>
-        <span class="n">ss_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y_c</span> <span class="o">-</span> <span class="n">y_fit</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">ss_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y_c</span> <span class="o">-</span> <span class="n">y_fit</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
         <span class="n">r2_obs</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span><span class="n">ss_res</span> <span class="o">/</span> <span class="n">ss_y</span><span class="p">)</span>
         <span class="n">r2_vals</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">r2_obs</span>
 
@@ -2352,7 +2414,7 @@ permutations : int
             <span class="n">y_perm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">y_c</span><span class="p">)</span>
             <span class="n">beta_perm</span> <span class="o">=</span> <span class="n">XtX_inv_Xt</span> <span class="o">@</span> <span class="n">y_perm</span>
             <span class="n">y_fit_perm</span> <span class="o">=</span> <span class="n">X_c</span> <span class="o">@</span> <span class="n">beta_perm</span>
-            <span class="n">ss_res_perm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y_perm</span> <span class="o">-</span> <span class="n">y_fit_perm</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">ss_res_perm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y_perm</span> <span class="o">-</span> <span class="n">y_fit_perm</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
             <span class="n">r2_perm</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span><span class="n">ss_res_perm</span> <span class="o">/</span> <span class="n">ss_y</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">r2_perm</span> <span class="o">&gt;=</span> <span class="n">r2_obs</span> <span class="o">-</span> <span class="mf">1e-12</span><span class="p">:</span>
@@ -2360,11 +2422,7 @@ permutations : int
 
         <span class="n">p_vals</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">greater_eq</span> <span class="o">/</span> <span class="p">(</span><span class="n">permutations</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;vectors&quot;</span><span class="p">:</span> <span class="n">vectors</span><span class="p">,</span>
-        <span class="s2">&quot;r2&quot;</span><span class="p">:</span> <span class="n">r2_vals</span><span class="p">,</span>
-        <span class="s2">&quot;pvals&quot;</span><span class="p">:</span> <span class="n">p_vals</span>
-    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;vectors&quot;</span><span class="p">:</span> <span class="n">vectors</span><span class="p">,</span> <span class="s2">&quot;r2&quot;</span><span class="p">:</span> <span class="n">r2_vals</span><span class="p">,</span> <span class="s2">&quot;pvals&quot;</span><span class="p">:</span> <span class="n">p_vals</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2399,28 +2457,7 @@ ndim : int
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">440</span>
-<span class="normal">441</span>
-<span class="normal">442</span>
-<span class="normal">443</span>
-<span class="normal">444</span>
-<span class="normal">445</span>
-<span class="normal">446</span>
-<span class="normal">447</span>
-<span class="normal">448</span>
-<span class="normal">449</span>
-<span class="normal">450</span>
-<span class="normal">451</span>
-<span class="normal">452</span>
-<span class="normal">453</span>
-<span class="normal">454</span>
-<span class="normal">455</span>
-<span class="normal">456</span>
-<span class="normal">457</span>
-<span class="normal">458</span>
-<span class="normal">459</span>
-<span class="normal">460</span>
-<span class="normal">461</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">461</span>
 <span class="normal">462</span>
 <span class="normal">463</span>
 <span class="normal">464</span>
@@ -2439,13 +2476,28 @@ ndim : int
 <span class="normal">477</span>
 <span class="normal">478</span>
 <span class="normal">479</span>
-<span class="normal">480</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">isomap</span><span class="p">(</span><span class="n">dist</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
-           <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
-           <span class="n">ndim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span>
+<span class="normal">485</span>
+<span class="normal">486</span>
+<span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">isomap</span><span class="p">(</span><span class="n">dist</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">ndim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Isomap Ordination.</span>
 
-<span class="sd">    Mimics `vegan::isomap`. Constructs a nearest-neighbors geodesic network </span>
+<span class="sd">    Mimics `vegan::isomap`. Constructs a nearest-neighbors geodesic network</span>
 <span class="sd">    and returns its lower-dimensional scaling coordinates.</span>
 
 <span class="sd">    Parameters</span>
@@ -2463,6 +2515,7 @@ ndim : int
 <span class="sd">        &quot;points&quot;: Ordination coordinates (n_sites, ndim).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.manifold</span><span class="w"> </span><span class="kn">import</span> <span class="n">Isomap</span> <span class="k">as</span> <span class="n">SklearnIsomap</span>
+
     <span class="n">dist_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">dist_arr</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -2476,10 +2529,7 @@ ndim : int
     <span class="c1"># In vegan, it also returns the net/geodesic distance matrix.</span>
     <span class="c1"># scikit-learn stores the geodesic distance graph in `dist_matrix_` on the fitted object.</span>
 
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;points&quot;</span><span class="p">:</span> <span class="n">points</span><span class="p">,</span>
-        <span class="s2">&quot;dist&quot;</span><span class="p">:</span> <span class="n">iso</span><span class="o">.</span><span class="n">dist_matrix_</span>
-    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;points&quot;</span><span class="p">:</span> <span class="n">points</span><span class="p">,</span> <span class="s2">&quot;dist&quot;</span><span class="p">:</span> <span class="n">iso</span><span class="o">.</span><span class="n">dist_matrix_</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2490,7 +2540,7 @@ ndim : int
 
 
 <h3 id="mapu.ordination.metaMDS" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">metaMDS</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="s1">&#39;bray&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">metaMDS</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="s1">&#39;bray&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">trymax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
 </h3>
 
@@ -2511,18 +2561,22 @@ k : int, default 2
 n_init : int, default 10
     Number of random initializations to find the global minimum stress.
 max_iter : int, default 300
-    Maximum number of iterations for a single run.</p>
+    Maximum number of iterations for a single run.
+trymax : int, optional
+    Alias for <code>n_init</code> (for R-style API compatibility with
+    <code>vegan::metaMDS</code>).  When provided, overrides <code>n_init</code>.</p>
 <h5 id="mapu.ordination.metaMDS--returns">Returns</h5>
-<p>np.ndarray
-    Coordinates of the points in k dimensions.</p>
+<p>dict
+    A dictionary containing:
+    - "points": np.ndarray — Coordinates of the points in k dimensions.
+    - "stress": float — The final stress value (Kruskal stress-1).
+    - "distance": str — The distance metric used.
+    - "k": int — Number of dimensions.</p>
 
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 68</span>
 <span class="normal"> 69</span>
 <span class="normal"> 70</span>
 <span class="normal"> 71</span>
@@ -2576,11 +2630,39 @@ max_iter : int, default 300
 <span class="normal">119</span>
 <span class="normal">120</span>
 <span class="normal">121</span>
-<span class="normal">122</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">metaMDS</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
-            <span class="n">distance</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;bray&quot;</span><span class="p">,</span>
-            <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-            <span class="n">n_init</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
-            <span class="n">max_iter</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">metaMDS</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+    <span class="n">distance</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;bray&quot;</span><span class="p">,</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">n_init</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="n">max_iter</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="n">trymax</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Non-metric Multidimensional Scaling (NMDS).</span>
 
@@ -2600,40 +2682,59 @@ max_iter : int, default 300
 <span class="sd">        Number of random initializations to find the global minimum stress.</span>
 <span class="sd">    max_iter : int, default 300</span>
 <span class="sd">        Maximum number of iterations for a single run.</span>
+<span class="sd">    trymax : int, optional</span>
+<span class="sd">        Alias for ``n_init`` (for R-style API compatibility with</span>
+<span class="sd">        ``vegan::metaMDS``).  When provided, overrides ``n_init``.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    np.ndarray</span>
-<span class="sd">        Coordinates of the points in k dimensions.</span>
+<span class="sd">    dict</span>
+<span class="sd">        A dictionary containing:</span>
+<span class="sd">        - &quot;points&quot;: np.ndarray — Coordinates of the points in k dimensions.</span>
+<span class="sd">        - &quot;stress&quot;: float — The final stress value (Kruskal stress-1).</span>
+<span class="sd">        - &quot;distance&quot;: str — The distance metric used.</span>
+<span class="sd">        - &quot;k&quot;: int — Number of dimensions.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">trymax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">n_init</span> <span class="o">=</span> <span class="n">trymax</span>
+
     <span class="c1"># 1. Compute distance matrix</span>
     <span class="n">dist_matrix</span> <span class="o">=</span> <span class="n">vegdist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">distance</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dist_matrix</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">dist_matrix</span> <span class="o">=</span> <span class="n">dist_matrix</span><span class="o">.</span><span class="n">values</span>
 
     <span class="c1"># 2. Run Non-metric MDS using scikit-learn</span>
     <span class="c1"># We use precomputed distance and metric=False for non-metric MDS</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># scikit-learn &gt;= 1.8 (or whenever metric_mds was introduced)</span>
-        <span class="n">mds</span> <span class="o">=</span> <span class="n">MDS</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
-                  <span class="n">metric_mds</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                  <span class="n">init</span><span class="o">=</span><span class="s2">&quot;random&quot;</span><span class="p">,</span>
-                  <span class="n">n_init</span><span class="o">=</span><span class="n">n_init</span><span class="p">,</span>
-                  <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
-                  <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;precomputed&quot;</span><span class="p">,</span>
-                  <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="n">mds</span> <span class="o">=</span> <span class="n">MDS</span><span class="p">(</span>
+            <span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
+            <span class="n">metric_mds</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">init</span><span class="o">=</span><span class="s2">&quot;random&quot;</span><span class="p">,</span>
+            <span class="n">n_init</span><span class="o">=</span><span class="n">n_init</span><span class="p">,</span>
+            <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
+            <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;precomputed&quot;</span><span class="p">,</span>
+            <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span>
     <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
         <span class="c1"># scikit-learn &lt; 1.8 (init might not be a valid keyword argument)</span>
-        <span class="n">mds</span> <span class="o">=</span> <span class="n">MDS</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
-                  <span class="n">metric</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                  <span class="n">n_init</span><span class="o">=</span><span class="n">n_init</span><span class="p">,</span>
-                  <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
-                  <span class="n">dissimilarity</span><span class="o">=</span><span class="s2">&quot;precomputed&quot;</span><span class="p">,</span>
-                  <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="n">mds</span> <span class="o">=</span> <span class="n">MDS</span><span class="p">(</span>
+            <span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
+            <span class="n">metric</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">n_init</span><span class="o">=</span><span class="n">n_init</span><span class="p">,</span>
+            <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
+            <span class="n">dissimilarity</span><span class="o">=</span><span class="s2">&quot;precomputed&quot;</span><span class="p">,</span>
+            <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span>
 
     <span class="n">mds_result</span> <span class="o">=</span> <span class="n">mds</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dist_matrix</span><span class="p">)</span>
 
-    <span class="c1"># In a full port, we would also return species scores, stress values, etc.</span>
-    <span class="c1"># For now, return the sample coordinates</span>
-    <span class="k">return</span> <span class="n">mds_result</span><span class="o">.</span><span class="n">embedding_</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;points&quot;</span><span class="p">:</span> <span class="n">mds_result</span><span class="o">.</span><span class="n">embedding_</span><span class="p">,</span>
+        <span class="s2">&quot;stress&quot;</span><span class="p">:</span> <span class="n">mds_result</span><span class="o">.</span><span class="n">stress_</span><span class="p">,</span>
+        <span class="s2">&quot;distance&quot;</span><span class="p">:</span> <span class="n">distance</span><span class="p">,</span>
+        <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="n">k</span><span class="p">,</span>
+    <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2658,18 +2759,18 @@ max_iter : int, default 300
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">583</span>
-<span class="normal">584</span>
-<span class="normal">585</span>
-<span class="normal">586</span>
-<span class="normal">587</span>
-<span class="normal">588</span>
-<span class="normal">589</span>
-<span class="normal">590</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">pca</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">601</span>
+<span class="normal">602</span>
+<span class="normal">603</span>
+<span class="normal">604</span>
+<span class="normal">605</span>
+<span class="normal">606</span>
+<span class="normal">607</span>
+<span class="normal">608</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">pca</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Principal Component Analysis wrapper.</span>
 
-<span class="sd">    Syntactic wrapper identical structurally mapping boundaries resolving to </span>
+<span class="sd">    Syntactic wrapper identical structurally mapping boundaries resolving to</span>
 <span class="sd">    `vegan::rda(x)` mathematically without hierarchical constraints.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">rda</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -2707,37 +2808,7 @@ time : array-like
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">658</span>
-<span class="normal">659</span>
-<span class="normal">660</span>
-<span class="normal">661</span>
-<span class="normal">662</span>
-<span class="normal">663</span>
-<span class="normal">664</span>
-<span class="normal">665</span>
-<span class="normal">666</span>
-<span class="normal">667</span>
-<span class="normal">668</span>
-<span class="normal">669</span>
-<span class="normal">670</span>
-<span class="normal">671</span>
-<span class="normal">672</span>
-<span class="normal">673</span>
-<span class="normal">674</span>
-<span class="normal">675</span>
-<span class="normal">676</span>
-<span class="normal">677</span>
-<span class="normal">678</span>
-<span class="normal">679</span>
-<span class="normal">680</span>
-<span class="normal">681</span>
-<span class="normal">682</span>
-<span class="normal">683</span>
-<span class="normal">684</span>
-<span class="normal">685</span>
-<span class="normal">686</span>
-<span class="normal">687</span>
-<span class="normal">688</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">688</span>
 <span class="normal">689</span>
 <span class="normal">690</span>
 <span class="normal">691</span>
@@ -2761,13 +2832,47 @@ time : array-like
 <span class="normal">709</span>
 <span class="normal">710</span>
 <span class="normal">711</span>
-<span class="normal">712</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">prc</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
-        <span class="n">treatment</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span>
-        <span class="n">time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="normal">712</span>
+<span class="normal">713</span>
+<span class="normal">714</span>
+<span class="normal">715</span>
+<span class="normal">716</span>
+<span class="normal">717</span>
+<span class="normal">718</span>
+<span class="normal">719</span>
+<span class="normal">720</span>
+<span class="normal">721</span>
+<span class="normal">722</span>
+<span class="normal">723</span>
+<span class="normal">724</span>
+<span class="normal">725</span>
+<span class="normal">726</span>
+<span class="normal">727</span>
+<span class="normal">728</span>
+<span class="normal">729</span>
+<span class="normal">730</span>
+<span class="normal">731</span>
+<span class="normal">732</span>
+<span class="normal">733</span>
+<span class="normal">734</span>
+<span class="normal">735</span>
+<span class="normal">736</span>
+<span class="normal">737</span>
+<span class="normal">738</span>
+<span class="normal">739</span>
+<span class="normal">740</span>
+<span class="normal">741</span>
+<span class="normal">742</span>
+<span class="normal">743</span>
+<span class="normal">744</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">prc</span><span class="p">(</span>
+    <span class="n">response</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+    <span class="n">treatment</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span>
+    <span class="n">time</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Principal Response Curves.</span>
 
-<span class="sd">    Mimics `vegan::prc` parameterizing constraints uniquely isolating Time*Treatment </span>
+<span class="sd">    Mimics `vegan::prc` parameterizing constraints uniquely isolating Time*Treatment</span>
 <span class="sd">    interactions structurally explicitly mapping partial RDA.</span>
 
 <span class="sd">    Parameters</span>
@@ -2850,33 +2955,29 @@ Y : np.ndarray
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">126</span>
-<span class="normal">127</span>
-<span class="normal">128</span>
-<span class="normal">129</span>
-<span class="normal">130</span>
-<span class="normal">131</span>
-<span class="normal">132</span>
-<span class="normal">133</span>
-<span class="normal">134</span>
-<span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span>
-<span class="normal">138</span>
-<span class="normal">139</span>
-<span class="normal">140</span>
-<span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span>
-<span class="normal">149</span>
-<span class="normal">150</span>
-<span class="normal">151</span>
-<span class="normal">152</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">procrustes</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">procrustes</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Procrustes Rotation.</span>
 
@@ -2898,11 +2999,7 @@ Y : np.ndarray
 <span class="sd">        &quot;Yrot&quot;: Rotated matrix Y.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">X_std</span><span class="p">,</span> <span class="n">Y_rot</span><span class="p">,</span> <span class="n">disparity</span> <span class="o">=</span> <span class="n">scipy_procrustes</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;m2&quot;</span><span class="p">:</span> <span class="n">disparity</span><span class="p">,</span>
-        <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">X_std</span><span class="p">,</span>
-        <span class="s2">&quot;Yrot&quot;</span><span class="p">:</span> <span class="n">Y_rot</span>
-    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;m2&quot;</span><span class="p">:</span> <span class="n">disparity</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">X_std</span><span class="p">,</span> <span class="s2">&quot;Yrot&quot;</span><span class="p">:</span> <span class="n">Y_rot</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -2939,31 +3036,7 @@ Y : array-like, optional
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">154</span>
-<span class="normal">155</span>
-<span class="normal">156</span>
-<span class="normal">157</span>
-<span class="normal">158</span>
-<span class="normal">159</span>
-<span class="normal">160</span>
-<span class="normal">161</span>
-<span class="normal">162</span>
-<span class="normal">163</span>
-<span class="normal">164</span>
-<span class="normal">165</span>
-<span class="normal">166</span>
-<span class="normal">167</span>
-<span class="normal">168</span>
-<span class="normal">169</span>
-<span class="normal">170</span>
-<span class="normal">171</span>
-<span class="normal">172</span>
-<span class="normal">173</span>
-<span class="normal">174</span>
-<span class="normal">175</span>
-<span class="normal">176</span>
-<span class="normal">177</span>
-<span class="normal">178</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">178</span>
 <span class="normal">179</span>
 <span class="normal">180</span>
 <span class="normal">181</span>
@@ -3021,12 +3094,33 @@ Y : array-like, optional
 <span class="normal">233</span>
 <span class="normal">234</span>
 <span class="normal">235</span>
-<span class="normal">236</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rda</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
-            <span class="n">Y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rda</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="n">Y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Redundancy Analysis (Constrained / Unconstrained Principal Component Analysis).</span>
 
-<span class="sd">    Mimics `vegan::rda`. If `Y` is provided, performs constrained redundancy </span>
+<span class="sd">    Mimics `vegan::rda`. If `Y` is provided, performs constrained redundancy</span>
 <span class="sd">    analysis distributing inertias between fitted constraints and residuals.</span>
 <span class="sd">    If `Y` is None, performs unconstrained PCA.</span>
 
@@ -3054,16 +3148,14 @@ Y : array-like, optional
     <span class="c1"># Center X</span>
     <span class="n">x_c</span> <span class="o">=</span> <span class="n">x_arr</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_arr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-    <span class="n">res</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;tot.chi&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
-        <span class="s2">&quot;CA&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="s2">&quot;CCA&quot;</span><span class="p">:</span> <span class="kc">None</span>
-    <span class="p">}</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tot.chi&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;CA&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;CCA&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
 
     <span class="k">if</span> <span class="n">Y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">y_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">y_arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimensions of constraint Y must match rows of community matrix x.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Dimensions of constraint Y must match rows of community matrix x.&quot;</span>
+            <span class="p">)</span>
 
         <span class="c1"># Center Y</span>
         <span class="n">y_c</span> <span class="o">=</span> <span class="n">y_arr</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_arr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -3079,9 +3171,9 @@ Y : array-like, optional
         <span class="c1"># Helper inner function</span>
         <span class="k">def</span><span class="w"> </span><span class="nf">extract_inertias</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
             <span class="n">mat_scaled</span> <span class="o">=</span> <span class="n">mat</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="c1"># Standard SVD </span>
+            <span class="c1"># Standard SVD</span>
             <span class="n">_</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">mat_scaled</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-            <span class="n">eig</span> <span class="o">=</span> <span class="n">S</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="n">eig</span> <span class="o">=</span> <span class="n">S</span><span class="o">**</span><span class="mi">2</span>
             <span class="n">eig</span> <span class="o">=</span> <span class="n">eig</span><span class="p">[</span><span class="n">eig</span> <span class="o">&gt;</span> <span class="mf">1e-12</span><span class="p">]</span>
             <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;eigenvalues&quot;</span><span class="p">:</span> <span class="n">eig</span><span class="p">,</span> <span class="s2">&quot;tot.chi&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">eig</span><span class="p">)}</span>
 
@@ -3093,14 +3185,11 @@ Y : array-like, optional
         <span class="c1"># Unconstrained</span>
         <span class="n">x_scale</span> <span class="o">=</span> <span class="n">x_c</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Vt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">x_scale</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">S</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">S</span><span class="o">**</span><span class="mi">2</span>
         <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">eigenvalues</span><span class="p">[</span><span class="n">eigenvalues</span> <span class="o">&gt;</span> <span class="mf">1e-12</span><span class="p">]</span>
         <span class="n">tot_chi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">)</span>
 
-        <span class="n">res</span><span class="p">[</span><span class="s2">&quot;CA&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;eigenvalues&quot;</span><span class="p">:</span> <span class="n">eigenvalues</span><span class="p">,</span>
-            <span class="s2">&quot;tot.chi&quot;</span><span class="p">:</span> <span class="n">tot_chi</span>
-        <span class="p">}</span>
+        <span class="n">res</span><span class="p">[</span><span class="s2">&quot;CA&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;eigenvalues&quot;</span><span class="p">:</span> <span class="n">eigenvalues</span><span class="p">,</span> <span class="s2">&quot;tot.chi&quot;</span><span class="p">:</span> <span class="n">tot_chi</span><span class="p">}</span>
         <span class="n">res</span><span class="p">[</span><span class="s2">&quot;tot.chi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tot_chi</span>
 
     <span class="k">return</span> <span class="n">res</span>
@@ -3128,30 +3217,36 @@ species optima (centroids) structurally extracting environmental niche widths na
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">592</span>
-<span class="normal">593</span>
-<span class="normal">594</span>
-<span class="normal">595</span>
-<span class="normal">596</span>
-<span class="normal">597</span>
-<span class="normal">598</span>
-<span class="normal">599</span>
-<span class="normal">600</span>
-<span class="normal">601</span>
-<span class="normal">602</span>
-<span class="normal">603</span>
-<span class="normal">604</span>
-<span class="normal">605</span>
-<span class="normal">606</span>
-<span class="normal">607</span>
-<span class="normal">608</span>
-<span class="normal">609</span>
-<span class="normal">610</span>
-<span class="normal">611</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">tolerance</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">site_scores</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">species_scores</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">611</span>
+<span class="normal">612</span>
+<span class="normal">613</span>
+<span class="normal">614</span>
+<span class="normal">615</span>
+<span class="normal">616</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span>
+<span class="normal">625</span>
+<span class="normal">626</span>
+<span class="normal">627</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span>
+<span class="normal">633</span>
+<span class="normal">634</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">tolerance</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">site_scores</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">species_scores</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Species Niche Tolerance Mapping.</span>
 
-<span class="sd">    Mimics `vegan::tolerance`. Calculates the root mean squared deviation from </span>
+<span class="sd">    Mimics `vegan::tolerance`. Calculates the root mean squared deviation from</span>
 <span class="sd">    species optima (centroids) structurally extracting environmental niche widths natively!</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">x_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
@@ -3159,10 +3254,12 @@ species optima (centroids) structurally extracting environmental niche widths na
 
     <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">species_scores</span><span class="p">)</span>
 
-    <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">site_scores</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-            <span class="n">diff</span> <span class="o">=</span> <span class="n">site_scores</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">species_scores</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">weighted_sq_diff</span> <span class="o">=</span> <span class="n">x_arr</span> <span class="o">*</span> <span class="p">(</span><span class="n">diff</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">diff</span> <span class="o">=</span> <span class="n">site_scores</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">species_scores</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
+                <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="p">)</span>
+            <span class="n">weighted_sq_diff</span> <span class="o">=</span> <span class="n">x_arr</span> <span class="o">*</span> <span class="p">(</span><span class="n">diff</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
             <span class="n">tol_var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weighted_sq_diff</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">x_sum</span>
             <span class="n">out</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tol_var</span><span class="p">)</span>
 
@@ -3192,31 +3289,7 @@ Supports exactly 2 explicit structural variable components natively.</p>
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">613</span>
-<span class="normal">614</span>
-<span class="normal">615</span>
-<span class="normal">616</span>
-<span class="normal">617</span>
-<span class="normal">618</span>
-<span class="normal">619</span>
-<span class="normal">620</span>
-<span class="normal">621</span>
-<span class="normal">622</span>
-<span class="normal">623</span>
-<span class="normal">624</span>
-<span class="normal">625</span>
-<span class="normal">626</span>
-<span class="normal">627</span>
-<span class="normal">628</span>
-<span class="normal">629</span>
-<span class="normal">630</span>
-<span class="normal">631</span>
-<span class="normal">632</span>
-<span class="normal">633</span>
-<span class="normal">634</span>
-<span class="normal">635</span>
-<span class="normal">636</span>
-<span class="normal">637</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">637</span>
 <span class="normal">638</span>
 <span class="normal">639</span>
 <span class="normal">640</span>
@@ -3235,11 +3308,42 @@ Supports exactly 2 explicit structural variable components natively.</p>
 <span class="normal">653</span>
 <span class="normal">654</span>
 <span class="normal">655</span>
-<span class="normal">656</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">varpart</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="o">*</span><span class="n">env_matrices</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="normal">656</span>
+<span class="normal">657</span>
+<span class="normal">658</span>
+<span class="normal">659</span>
+<span class="normal">660</span>
+<span class="normal">661</span>
+<span class="normal">662</span>
+<span class="normal">663</span>
+<span class="normal">664</span>
+<span class="normal">665</span>
+<span class="normal">666</span>
+<span class="normal">667</span>
+<span class="normal">668</span>
+<span class="normal">669</span>
+<span class="normal">670</span>
+<span class="normal">671</span>
+<span class="normal">672</span>
+<span class="normal">673</span>
+<span class="normal">674</span>
+<span class="normal">675</span>
+<span class="normal">676</span>
+<span class="normal">677</span>
+<span class="normal">678</span>
+<span class="normal">679</span>
+<span class="normal">680</span>
+<span class="normal">681</span>
+<span class="normal">682</span>
+<span class="normal">683</span>
+<span class="normal">684</span>
+<span class="normal">685</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">varpart</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="o">*</span><span class="n">env_matrices</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Variation Partitioning evaluating Adjusted R-square limits.</span>
 
-<span class="sd">    Mimics `vegan::varpart`. Evaluates explicit Unique and Shared constraints inherently natively </span>
+<span class="sd">    Mimics `vegan::varpart`. Evaluates explicit Unique and Shared constraints inherently natively</span>
 <span class="sd">    by structuring continuous recursive redundancy iterations explicitly.</span>
 <span class="sd">    Supports exactly 2 explicit structural variable components natively.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -3248,7 +3352,9 @@ Supports exactly 2 explicit structural variable components natively.</p>
 
     <span class="n">num_mats</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">env_matrices</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">num_mats</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;varpart currently natively supports exactly 2 explicitly matrix structures for $R^2$ scaling.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;varpart currently natively supports exactly 2 explicitly matrix structures for $R^2$ scaling.&quot;</span>
+        <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_adj_r2</span><span class="p">(</span><span class="n">Y</span><span class="p">):</span>
         <span class="n">y_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
@@ -3274,9 +3380,10 @@ Supports exactly 2 explicit structural variable components natively.</p>
     <span class="n">b</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">-</span> <span class="n">a</span>
     <span class="n">d</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">r12</span>
 
-    <span class="n">df_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-        <span class="s2">&quot;R2.adj&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">r12</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">]</span>
-    <span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="s2">&quot;X2&quot;</span><span class="p">,</span> <span class="s2">&quot;X1+X2&quot;</span><span class="p">,</span> <span class="s2">&quot;Unique_X1&quot;</span><span class="p">,</span> <span class="s2">&quot;Shared&quot;</span><span class="p">,</span> <span class="s2">&quot;Unique_X2&quot;</span><span class="p">,</span> <span class="s2">&quot;Unexplained&quot;</span><span class="p">])</span>
+    <span class="n">df_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span><span class="s2">&quot;R2.adj&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">r12</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">]},</span>
+        <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="s2">&quot;X2&quot;</span><span class="p">,</span> <span class="s2">&quot;X1+X2&quot;</span><span class="p">,</span> <span class="s2">&quot;Unique_X1&quot;</span><span class="p">,</span> <span class="s2">&quot;Shared&quot;</span><span class="p">,</span> <span class="s2">&quot;Unique_X2&quot;</span><span class="p">,</span> <span class="s2">&quot;Unexplained&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
 
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;fractions&quot;</span><span class="p">:</span> <span class="n">df_out</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -3314,23 +3421,7 @@ expand : bool
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>src/mapu/ordination.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">380</span>
-<span class="normal">381</span>
-<span class="normal">382</span>
-<span class="normal">383</span>
-<span class="normal">384</span>
-<span class="normal">385</span>
-<span class="normal">386</span>
-<span class="normal">387</span>
-<span class="normal">388</span>
-<span class="normal">389</span>
-<span class="normal">390</span>
-<span class="normal">391</span>
-<span class="normal">392</span>
-<span class="normal">393</span>
-<span class="normal">394</span>
-<span class="normal">395</span>
-<span class="normal">396</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">396</span>
 <span class="normal">397</span>
 <span class="normal">398</span>
 <span class="normal">399</span>
@@ -3372,13 +3463,35 @@ expand : bool
 <span class="normal">435</span>
 <span class="normal">436</span>
 <span class="normal">437</span>
-<span class="normal">438</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">wascores</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
-             <span class="n">w</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
-             <span class="n">expand</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span>
+<span class="normal">455</span>
+<span class="normal">456</span>
+<span class="normal">457</span>
+<span class="normal">458</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">wascores</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+    <span class="n">w</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+    <span class="n">expand</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Weighted Averages Scores for Species.</span>
 
-<span class="sd">    Mimics `vegan::wascores`. Computes the weighted averages of site scores </span>
+<span class="sd">    Mimics `vegan::wascores`. Computes the weighted averages of site scores</span>
 <span class="sd">    for species.</span>
 
 <span class="sd">    Parameters</span>
@@ -3388,7 +3501,7 @@ expand : bool
 <span class="sd">    w : array-like</span>
 <span class="sd">        Community abundances matrix (n_sites, n_species).</span>
 <span class="sd">    expand : bool</span>
-<span class="sd">        If True, expand scores so that their variance equals the variance of the </span>
+<span class="sd">        If True, expand scores so that their variance equals the variance of the</span>
 <span class="sd">        site scores (equivalent to vegan&#39;s `expand=TRUE`).</span>
 
 <span class="sd">    Returns</span>
@@ -3401,13 +3514,15 @@ expand : bool
 
     <span class="c1"># Check dimensions</span>
     <span class="k">if</span> <span class="n">x_arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">w_arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Number of rows in site scores must match number of rows in community abundances.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Number of rows in site scores must match number of rows in community abundances.&quot;</span>
+        <span class="p">)</span>
 
     <span class="c1"># w.T (species x sites) @ x (sites x dims) -&gt; (species x dims)</span>
     <span class="c1"># divided by sum of abundances per species</span>
     <span class="n">col_sums</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w_arr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 
-    <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
         <span class="n">wa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">col_sums</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w_arr</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x_arr</span><span class="p">)</span> <span class="o">/</span> <span class="n">col_sums</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">expand</span><span class="p">:</span>
@@ -3417,7 +3532,7 @@ expand : bool
         <span class="n">var_wa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">wa</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
         <span class="c1"># Scaling factor: sqrt(var_sites / var_wa)</span>
-        <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
             <span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">var_wa</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_sites</span> <span class="o">/</span> <span class="n">var_wa</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">)</span>
 
         <span class="n">wa</span> <span class="o">=</span> <span class="n">wa</span> <span class="o">*</span> <span class="n">scale</span>
@@ -3456,54 +3571,54 @@ expand : bool
 
 
 
-
+                
               </article>
             </div>
-
-
+          
+          
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-
+        
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
-
+  
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
   Back to top
 </button>
-
+        
       </main>
-
+      
         <footer class="md-footer">
-
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
-
-
+  
+  
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
-
+  
 </div>
-
+      
     </div>
   </div>
 </footer>
-
+      
     </div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-
-
-
-
-
+    
+    
+    
+      
+      
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-
-
+    
+    
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
-
-
+      
+    
   </body>
 </html>
